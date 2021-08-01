@@ -1,34 +1,12 @@
 import React from "react";
-
 import { useFela } from "react-fela";
+import * as style from './HelloWorld.style'
 
-const style = {
-  backgroundColor: "black",
-  color: "pink",
-  width: "100%",
-  height: "50vh",
-  fontSize: "40px",
-  textAlign: "center",
-  lineHeight: "50vh",
-};
 
-const style2 = ({fontSize}) => ({
-  backgroundColor: "pink",
-  color: "black",
-  width: "100%",
-  height: "50vh",
-  fontSize,
-  textAlign: "center",
-  lineHeight: "50vh",
-  ':hover': {
-    color: 'green'
-  },
-});
-
-export default function HelloWorld({ style1 = true }) {
+export default function HelloWorld({ style1 = true, fontSize }) {
   const { css } = useFela();
 
   return (
-    <div className={style1 ? css(style) : css(style2({fontSize: '80px'}))}>Hello World !</div>
+    <div className={style1 ? css(style.hello) : css(style.hello2({fontSize: `${fontSize}px`}))}>Hello World !</div>
   );
 }
