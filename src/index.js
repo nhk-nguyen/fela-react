@@ -5,8 +5,11 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { createRenderer } from 'fela';
 import { RendererProvider } from 'react-fela'
+import plugins from 'fela-preset-web'
 
-const renderer = createRenderer();
+const renderer = createRenderer({
+  plugins
+});
 
 
 
