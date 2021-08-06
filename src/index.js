@@ -3,11 +3,19 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {RendererProvider} from 'react-fela'
+import {createRenderer} from 'fela'
+import plugins from 'fela-preset-web'
+
+const renderer = createRenderer({
+  plugins
+});
+
 
 ReactDOM.render(
-  <React.StrictMode>
+  <RendererProvider renderer={renderer}>
     <App />
-  </React.StrictMode>,
+  </RendererProvider>,
   document.getElementById('root')
 );
 

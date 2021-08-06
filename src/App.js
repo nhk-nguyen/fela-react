@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react'
+import AppWrapper from './AppWrapper'
+import { ThemeProvider } from 'react-fela';
+
+const themeNormal = {
+  bgColor: 'white',
+  color: 'black',
+  border: '1px solid #4a4a4a'
+}
+const darkMode = {
+  bgColor: '#4a4a4a',
+  color: 'white',
+  border: '1px solid #fff'
+}
 
 function App() {
+  const [isDarkMode, setDarkMode] = useState(false)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={!isDarkMode? themeNormal : darkMode}>
+      <AppWrapper setDarkMode={setDarkMode}/>
+    </ThemeProvider>
   );
 }
 
